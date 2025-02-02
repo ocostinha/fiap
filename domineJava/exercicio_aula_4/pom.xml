@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fiap</groupId>
-	<artifactId>exercicio</artifactId>
+	<artifactId>exercicio_aula_4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>exercicio</name>
+	<name>exercicio_aula_4</name>
 	<description>Exercicios para o curso Domine Java</description>
 	<url/>
 	<licenses>

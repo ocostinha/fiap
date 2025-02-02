@@ -24,11 +24,11 @@ public class CondominoDTO {
 
     @NotNull
     @Size(min = 2, max = 2)
-    private Integer ddd;
+    private String ddd;
 
     @NotNull
     @Size(min = 8, max = 9)
-    private Integer telefone;
+    private String telefone;
 
     @NotBlank
     @Email
