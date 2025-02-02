@@ -4,16 +4,18 @@ import com.fiap.exercicio.condomino.adapter.CondominoAdapter;
 import com.fiap.exercicio.condomino.dto.CondominoDTO;
 import com.fiap.exercicio.core.business.CondominoBusiness;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/condomino")
@@ -33,7 +35,7 @@ public class CondominoController {
     }
 
     @PutMapping("/{id}")
-    public CondominoDTO atualizar(@PathParam("id") String id,
+    public CondominoDTO atualizar(@PathVariable final String id,
                                   @Valid @RequestBody CondominoDTO condominoDTO) {
         condominoDTO.setId(id);
 
@@ -43,10 +45,18 @@ public class CondominoController {
     }
 
     @GetMapping("/{cpf}")
-    public CondominoDTO consultarPeloCPF(@PathParam("cpf") String cpf) {
+    public CondominoDTO consultarPeloCPF(@PathVariable final String cpf) {
         return condominoAdapter.fromDomain(
                 condominoBusiness.consultarPeloCPF(cpf)
         );
+    }
+
+    @GetMapping
+    public List<CondominoDTO> consultarTodos() {
+        return condominoBusiness.consultarTodos()
+                .stream()
+                .map(condominoAdapter::fromDomain)
+                .toList();
     }
 
 }

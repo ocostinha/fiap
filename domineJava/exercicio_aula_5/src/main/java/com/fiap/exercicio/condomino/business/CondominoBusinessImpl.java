@@ -8,6 +8,7 @@ import com.fiap.exercicio.domain.Condomino;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -60,6 +61,11 @@ public class CondominoBusinessImpl implements CondominoBusiness {
     public Condomino consultarPeloCPF(final String cpf) {
         return condominoRepository.consultarPeloCPF(cpf)
                 .orElseThrow(() -> new NotFoundException("Condômino não encontrado"));
+    }
+
+    @Override
+    public List<Condomino> consultarTodos() {
+        return condominoRepository.consultarTodos();
     }
 
 }

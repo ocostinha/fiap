@@ -2,6 +2,7 @@ package com.fiap.exercicio.core.repository;
 
 import com.fiap.exercicio.domain.Condomino;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CondominoRepository {
@@ -15,5 +16,7 @@ public interface CondominoRepository {
     Optional<Condomino> consultarPeloEmail(String email);
 
     Optional<Condomino> consultarPeloId(String id);
+
+    List<Condomino> consultarTodos();
 
 }

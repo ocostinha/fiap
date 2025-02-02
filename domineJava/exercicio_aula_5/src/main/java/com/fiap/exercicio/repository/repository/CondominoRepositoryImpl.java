@@ -7,6 +7,7 @@ import com.fiap.exercicio.repository.jpa.CondominoJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -48,6 +49,14 @@ public class CondominoRepositoryImpl implements CondominoRepository {
     public Optional<Condomino> consultarPeloId(final String id) {
         return Optional.ofNullable(
                 condominoAdapter.fromEntity(jpaRepository.findById(id).orElse(null)));
+    }
+
+    @Override
+    public List<Condomino> consultarTodos() {
+        return jpaRepository.findAll()
+                .stream()
+                .map(condominoAdapter::fromEntity)
+                .toList();
     }
 
 }
