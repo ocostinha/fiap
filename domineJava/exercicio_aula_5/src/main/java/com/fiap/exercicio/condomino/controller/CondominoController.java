@@ -44,10 +44,17 @@ public class CondominoController {
         );
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/filtro/{cpf}")
     public CondominoDTO consultarPeloCPF(@PathVariable final String cpf) {
         return condominoAdapter.fromDomain(
-                condominoBusiness.consultarPeloCPF(cpf)
+            condominoBusiness.consultarPeloCPF(cpf)
+        );
+    }
+
+    @GetMapping("/{id}")
+    public CondominoDTO consultarPeloId(@PathVariable final String id) {
+        return condominoAdapter.fromDomain(
+            condominoBusiness.consultarPorId(id)
         );
     }
 

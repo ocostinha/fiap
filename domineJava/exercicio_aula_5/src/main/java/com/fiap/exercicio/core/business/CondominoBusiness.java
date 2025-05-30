@@ -14,4 +14,6 @@ public interface CondominoBusiness {
 
     List<Condomino> consultarTodos();
 
+    Condomino consultarPorId(String id);
+
 }
