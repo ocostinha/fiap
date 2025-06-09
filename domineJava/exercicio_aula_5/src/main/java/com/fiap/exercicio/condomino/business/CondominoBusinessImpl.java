@@ -73,4 +73,9 @@ public class CondominoBusinessImpl implements CondominoBusiness {
         return condominoRepository.consultarPeloId(id).orElseThrow(() -> new NotFoundException("Condomino não localizado"));
     }
 
+    @Override
+    public void remover(final String id) {
+        condominoRepository.remover(id);
+    }
+
 }

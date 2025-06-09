@@ -16,4 +16,6 @@ public interface CondominoBusiness {
 
     Condomino consultarPorId(String id);
 
+    void remover(String id);
+
 }

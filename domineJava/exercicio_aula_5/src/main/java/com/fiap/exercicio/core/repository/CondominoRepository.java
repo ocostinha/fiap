@@ -19,4 +19,6 @@ public interface CondominoRepository {
 
     List<Condomino> consultarTodos();
 
+    void remover(String id);
+
 }

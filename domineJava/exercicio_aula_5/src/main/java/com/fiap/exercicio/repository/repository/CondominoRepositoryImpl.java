@@ -59,4 +59,9 @@ public class CondominoRepositoryImpl implements CondominoRepository {
                 .toList();
     }
 
+    @Override
+    public void remover(final String id) {
+        jpaRepository.deleteById(id);
+    }
+
 }
